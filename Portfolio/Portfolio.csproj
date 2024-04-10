@@ -250,7 +250,7 @@
     <Content Include="assets\vendor\typed.js\typed.module.js.map" />
     <Content Include="assets\vendor\typed.js\typed.umd.js.map" />
     <Content Include="forms\contact.php" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
