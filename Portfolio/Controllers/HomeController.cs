@@ -14,7 +14,7 @@ namespace Portfolio.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public ActionResult index()
         {
             return View();
         }
