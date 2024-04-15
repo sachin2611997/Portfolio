@@ -22,12 +22,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/Portfolio/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Portfolio/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Portfolio/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/Portfolio/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/Portfolio/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/Portfolio/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="~/assets/css/style.css" rel="stylesheet">
@@ -39,6 +39,73 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+    <style>
+       #hero{
+  width: 100%;
+  height: 100vh;
+  background: url("~/assets/img/sachin2.jpg") top center;
+  background-size: cover;
+        }
+
+  #hero:before{
+  content: "";
+  background: rgba(5, 13, 24, 0.3);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#hero .hero-container {
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero p {
+  color: #fff;
+  margin-bottom: 50px;
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+}
+
+#hero p span {
+  color: #fff;
+  padding-bottom: 4px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #149ddd;
+}
+
+@@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+@@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+    </style>
 </head>
 
 <body>
@@ -594,37 +661,37 @@ Experience as Team Lead in Axis Bank CC Invoice Process and Bank Of India Inboun
                     </div>
 
                     <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                       @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                       {
+                        <form action="Index/Home" method="post" role="form" class="php-email-form">
+                            
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Your Name</label>
-                                    <div class="form-control">
-                                        @Html.TextBoxFor(model => model.Name)
-                                    </div>
                                   
+                                        @Html.TextBoxFor(model => model.Name,  new { @class = "form-control" })
+                                    
+
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="name">Your Email</label>
-                                    <div class="form-control">
-                                        @Html.TextBoxFor(model => model.Email)
-                                    </div>
-                                  
+                                   
+                                        @Html.TextBoxFor(model => model.Email,new { @class = "form-control" })
+                                   
+
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name">Subject</label>
-                                <div class="form-control">
-                                    @Html.TextAreaFor(model => model.Subject, new { cols ="50"})
-                                </div>
-                               
+                                
+                                    @Html.TextAreaFor(model => model.Subject, new {@class="form-control", cols = "50" })
+                                
+
                             </div>
                             <div class="form-group">
                                 <label for="name">Message</label>
-                                <div class="form-control">
-                                    @Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "50" })
-                                </div>
+                                
+                                    @Html.TextAreaFor(model => model.Body, new { @class = "form-control", rows = "10", cols = "50" })
                               
+
                             </div>
                             <div class="my-3">
                                 <div class="loading">Loading</div>
@@ -632,8 +699,14 @@ Experience as Team Lead in Axis Bank CC Invoice Process and Bank Of India Inboun
                                 <div class="sent-message">@ViewBag.Message</div>
                             </div>
                             <div class="text-center"><button type="submit">Send Message</button></div>
-                       }
-                    </div>
+
+                            <h2>Hello, Google Maps</h2>
+
+                            <div id="map_canvas" style="width:80%; height:80%"></div>
+                          
+                            
+                        </form>
+</div>
 
                 </div>
 
@@ -658,19 +731,32 @@ Experience as Team Lead in Axis Bank CC Invoice Process and Bank Of India Inboun
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="~/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="~/assets/vendor/aos/aos.js"></script>
-    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="~/assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="~/assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="~/assets/vendor/php-email-form/validate.js"></script>
-
+    <script src="/Portfolio/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="/Portfolio/assets/vendor/aos/aos.js"></script>
+    <script src="/Portfolio/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Portfolio/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/Portfolio/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/Portfolio/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/Portfolio/assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="/Portfolio/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="/Portfolio/assets/vendor/php-email-form/validate.js"></script>
+    <script type="text/javascript"
+            src="http://maps.google.com/maps/api/js?sensor=false"></script> 
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
+    <script type="text/javascript">
+    function initialize() {
+        var latlng = new google.maps.LatLng(40.716948, -74.003563);
+        var options = { zoom: 14, center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP};
+        var map = new google.maps.Map(document.getElementById
+			("map_canvas"), options);
+    }
+    $(function () {
+        initialize();
+    });
 
+    </script> 
 </body>
 
 </html>
